@@ -29,8 +29,11 @@ client.on('ready', () => {
 
 
 client.on('message', message => {
+  if (message.author.bot) return;
   if (message.content.includes("hysteria")) message.channel.send("Hysteria hurts my fingers!");
-  if (!message.content.startsWith(prefix) || message.author.bot) return;
+  if (message.content.toLowerCase().includes("dead star")) message.channel.send("FFIIGGHHTTIINNGG YYOOUURRSSEELLFF");
+  if (message.content.toLowerCase().includes("mattbot")) message.channel.send("Bring Back MattBot!");
+  if (!message.content.startsWith(prefix)) return;
    // These are the Prefix commands, you have to say "ChrisBot" to use them. Later ones might be hardcoded, I have no idea what I'm doing.
   const args = message.content.slice(prefix.length + 1).split(/ +/);
   // I'm a nice person, so I'm making it case insensitive.
