@@ -24,12 +24,14 @@ for (const file of commandFiles) {
 
 var chrisemotes = ['<:chris1:714946778318766090>', '<:chris2:714946786170634255>', '<:chris3:714946793166733332>', '<:chris4:714946800230072423>', '<:chris5:714956395409047635>']
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  console.log(`we really do be logging in doe...`);
+  client.user.setActivity('wubwub bass');   
 });
 
 
 client.on('message', message => {
   if (message.author.bot) return;
+  //we be hardcoding
   if (message.content == "uwu") message.channel.send("cummy mpreg");
   if (message.content == "delete server") message.channel.send("No!");
   if (message.content.includes("hysteria")) message.channel.send("Hysteria hurts my fingers!");
