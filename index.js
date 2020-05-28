@@ -30,6 +30,8 @@ client.on('ready', () => {
 
 client.on('message', message => {
   if (message.author.bot) return;
+  if (message.content == "uwu") message.channel.send("cummy mpreg");
+  if (message.content == "delete server") message.channel.send("No!");
   if (message.content.includes("hysteria")) message.channel.send("Hysteria hurts my fingers!");
   if (message.content.toLowerCase().includes("dead star")) message.channel.send("FFIIGGHHTTIINNGG YYOOUURRSSEELLFF");
   if (message.content.toLowerCase().includes("mattbot")) message.channel.send("Bring Back MattBot!");
