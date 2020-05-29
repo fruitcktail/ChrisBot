@@ -3,7 +3,12 @@ module.exports = {
     description: 'love/hate relationship',
 	execute(message, args) {
         if (args[0] === "love") {
-            message.reply("I love you too <:heartato:715184960096698398>");
+            if (args[1] == "you") {
+                message.reply("I love you too!");
+            }
+            else {
+                message.reply("I agree, " + args[1] + " is great.");
+            }
             return;
         }
         if (args[0] === "hate") {
