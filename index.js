@@ -22,21 +22,30 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-var chrisemotes = ['<:chris1:714946778318766090>', '<:chris2:714946786170634255>', '<:chris3:714946793166733332>', '<:chris4:714946800230072423>', '<:chris5:714956395409047635>']
+var chrisemotes = ['<:chris1:714946778318766090>', '<:chris2:714946786170634255>', '<:chris3:714946793166733332>', '<:chris4:714946800230072423>', '<:chris5:714956395409047635>'];
 client.on('ready', () => {
   console.log(`we really do be logging in doe...`);
   client.user.setActivity('wubwub bass');   
 });
-
-
+var exactmatches = ["uwu", "delete server"];
+var exactmatchesresponses = ["cummy mpreg", "No!"];
+var othermatches = ["hysteria", "dead star", "acab"];
+var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYOOUURRSSEELLFF", "1312!"];
 client.on('message', message => {
   if (message.author.bot) return;
-  //we be hardcoding
-  if (message.content == "uwu") message.channel.send("cummy mpreg");
-  if (message.content == "delete server") message.channel.send("No!");
-  if (message.content.includes("hysteria")) message.channel.send("Hysteria hurts my fingers!");
-  if (message.content.toLowerCase().includes("dead star")) message.channel.send("FFIIGGHHTTIINNGG YYOOUURRSSEELLFF");
-  if (message.content.toLowerCase().includes("mattbot")) message.channel.send("Bring Back MattBot!");
+  var i;
+  for (i = 0; i < exactmatches.length; i++) {
+    if (message.content == exactmatches[i]) {
+      message.channel.send(exactmatchesresponses[i]);
+      return;
+    }
+  }  
+  for (i = 0; i < othermatches.length; i++) {
+    if (message.content.includes(othermatches[i])) {
+      message.channel.send(othermatchesresponses[i]);
+      return;
+    }
+  }  
   if (!message.content.startsWith(prefix)) return;
    // These are the Prefix commands, you have to say "ChrisBot" to use them. Later ones might be hardcoded, I have no idea what I'm doing.
   const args = message.content.slice(prefix.length + 1).split(/ +/);
