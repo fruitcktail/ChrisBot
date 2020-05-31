@@ -30,7 +30,7 @@ client.on('ready', () => {
 var exactmatches = ["uwu", "delete server"];
 var exactmatchesresponses = ["cummy mpreg", "No!"];
 var othermatches = ["hysteria", "dead star", "acab"];
-var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYOOUURRSSEELLFF", "1312!"];
+var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYOOUURRSSEELLFF", "1312!!"];
 client.on('message', message => {
   if (message.author.bot) return;
   var i;
