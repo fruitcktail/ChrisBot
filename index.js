@@ -3,7 +3,6 @@
 const fs = require('fs');
 const Discord = require('discord.js');
 const client = new Discord.Client();
-
 // Here we load the config.json file that contains our token and our prefix values. 
 const config = require("./config.json");
 // config.token contains the bot's token
@@ -32,6 +31,14 @@ var exactmatchesresponses = ["cummy mpreg", "No!"];
 var othermatches = ["hysteria", "dead star", "acab"];
 var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYOOUURRSSEELLFF", "1312!!"];
 client.on('message', message => {
+  if(msg.member.user.tag === 'MorganBot#1650'){
+    switch (msg) {
+      case 'I could play it for you if you want':
+        msg.reply('Don\'t touch my fucking bass!');
+        break;
+    }
+
+  }
   if (message.author.bot) return;
   var i;
   for (i = 0; i < exactmatches.length; i++) {
