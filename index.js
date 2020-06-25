@@ -26,19 +26,11 @@ client.on('ready', () => {
   console.log(`we really do be logging in doe...`);
   client.user.setActivity('wubwub bass');   
 });
-var exactmatches = ["uwu", "delete server"];
-var exactmatchesresponses = ["cummy mpreg", "No!"];
-var othermatches = ["hysteria", "dead star", "acab"];
-var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYOOUURRSSEELLFF", "1312!!"];
+var exactmatches = ["uwu", "delete server", "ur so sexy", "cave"];
+var exactmatchesresponses = ["cummy mpreg", "No!", "no don't ur so sexy aha", "<@643545858473852928> please let me play that again! I love the bassline."];
+var othermatches = ["hysteria", "dead star", "acab", "overy"];
+var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYOOUURRSSEELLFF", "1312!!", "ChrisBot officially ships Overy! (Action/Caw when)"];
 client.on('message', message => {
-  if(msg.member.user.tag === 'MorganBot#1650'){
-    switch (msg) {
-      case 'I could play it for you if you want':
-        msg.reply('Don\'t touch my fucking bass!');
-        break;
-    }
-
-  }
   if (message.author.bot) return;
   var i;
   for (i = 0; i < exactmatches.length; i++) {
