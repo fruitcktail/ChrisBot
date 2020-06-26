@@ -26,22 +26,24 @@ client.on('ready', () => {
   console.log(`we really do be logging in doe...`);
   client.user.setActivity('wubwub bass');   
 });
-var exactmatches = ["uwu", "delete server", "ur so sexy", "cave"];
-var exactmatchesresponses = ["cummy mpreg", "No!", "no don't ur so sexy aha", "<@643545858473852928> please let me play that again! I love the bassline."];
-var othermatches = ["hysteria", "dead star", "acab", "overy"];
-var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYOOUURRSSEELLFF", "1312!!", "ChrisBot officially ships Overy! (Action/Caw when)"];
+var exactmatches = ["uwu", "delete server", "Vote TDS"];
+var exactmatchesresponses = ["cummy mpreg", "No!", "no don't"];
+var othermatches = ["hysteria", "dead star", "acab", "overy", "ur so sexy", "cave"];
+var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYOOUURRSSEELLFF", "1312!!", "ChrisBot officially ships Overy! (Action/Caw when)", "no don't ur so sexy aha", "<@643545858473852928> please let me play that again! I love the bassline."];
 client.on('message', message => {
   if (message.author.bot) return;
   var i;
   for (i = 0; i < exactmatches.length; i++) {
     if (message.content == exactmatches[i]) {
       message.channel.send(exactmatchesresponses[i]);
+      console.log(exactmatchesresponses[i]);
       return;
     }
   }  
   for (i = 0; i < othermatches.length; i++) {
     if (message.content.includes(othermatches[i])) {
       message.channel.send(othermatchesresponses[i]);
+      console.log(othermatchesresponses[i]);
       return;
     }
   }  
