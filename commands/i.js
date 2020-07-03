@@ -6,7 +6,7 @@ module.exports = {
             if (args[1] == "you") {
                 message.reply("I love you too!");
             }
-            else if (message.content.includes("@everyone")){
+            else if (message.content.includes("@everyone" || "@here")){
                 message.reply("I'm not saying that!")
             }
             else {
