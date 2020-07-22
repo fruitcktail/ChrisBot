@@ -24,7 +24,7 @@ for (const file of commandFiles) {
 var chrisemotes = ['<:chris1:714946778318766090>', '<:chris2:714946786170634255>', '<:chris3:714946793166733332>', '<:chris4:714946800230072423>', '<:chris5:714956395409047635>'];
 client.on('ready', () => {
   console.log(`we really do be logging in doe...`);
-  bot.user.setActivity('wubwub bass', { type: 'PLAYING' }); 
+  client.user.setActivity('wubwub bass', { type: 'PLAYING' }); 
 });
 var exactmatches = ["uwu", "delete server", "please tone down"];
 var exactmatchesresponses = ["cummy mpreg", "No!", "the weirdness guys"];
