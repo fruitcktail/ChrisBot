@@ -2,7 +2,6 @@ module.exports = {
 	name: 'i',
     description: 'love/hate relationship',
 	execute(message, args) {
-	console.log(args[0])
         if (args[0]=== "love") {
             if (args[1] == "you") {
                 message.reply("I love you too!");
