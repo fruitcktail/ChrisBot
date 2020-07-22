@@ -22,6 +22,5 @@ module.exports = {
         else {
             message.channel.send("i-");
         }
-        console.log("i-")
 	},
 };
