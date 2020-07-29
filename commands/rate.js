@@ -5,6 +5,9 @@ module.exports = {
         if (args[0] == "ave" || args[0] == "avery") {
             message.channel.send("I'd give Ave a 0/10!")
         }
+            else if (args[0] == "Char") {
+            message.channel.send("I'd give that a 9/10")
+        }
         else if (args[0] == "ChrisBot") {
             message.channel.send("I'd give myself four stars out of five.")
         }
