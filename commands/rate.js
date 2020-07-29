@@ -8,6 +8,11 @@ module.exports = {
         else if (args[0] == "ChrisBot") {
             message.channel.send("I'd give myself four stars out of five.")
         }
+        else if(args[0] == "my" && args[1] == "cock") {
+            message.channel.send({
+                files: ['./images/nicecock.jpg']
+            });
+        }
         else {
             var randno = Math.floor(Math.random() * 11);
             message.channel.send("I'd give that a " + randno + "/10");
