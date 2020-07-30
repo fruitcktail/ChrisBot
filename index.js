@@ -28,8 +28,8 @@ client.on('ready', () => {
 });
 var exactmatches = ["uwu", "delete server", "please tone down"];
 var exactmatchesresponses = ["cummy mpreg", "No!", "the weirdness guys"];
-var othermatches = ["hysteria", "dead star", "acab", "overy", "ur so sexy", "cave", "gebii"];
-var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYOOUURRSSEELLFF", "1312!!", "ChrisBot officially ships Overy! (Action/Caw when)", "no don't ur so sexy aha", "<@643545858473852928> please let me play that again! I love the bassline.", "gebii > overy"];
+var othermatches = ["hysteria", "dead star", "acab", "overy", "ur so sexy", "gebii"];
+var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYOOUURRSSEELLFF", "1312!!", "ChrisBot officially ships Overy! (Action/Caw when)", "no don't ur so sexy aha", "gebii > overy"];
 client.on('message', message => {
   if (message.author.bot) return;
   var i;
