@@ -38,20 +38,25 @@ client.on('message', message => {
   if (message.author.bot) return;
   if (message.guild) {
     //points uwu
+    // We'll use the key often enough that simplifying it is worth the trouble.
     const key = `${message.guild.id}-${message.author.id}`;
-    client.points.ensure(key, {
-      //excuse me sir would you like an account
+
+    // Triggers on new users we haven't seen before.
+    client.points.ensure(`${message.guild.id}-${message.author.id}`, {
       user: message.author.id,
       guild: message.guild.id,
       points: 0,
       level: 1
     });
-    //excuse me sir would you like a point
-    client.points.inc(key, "points");
+    
+    client.points.math(key, "+", 10, "points")
+    // Calculate the user's current level
     const curLevel = Math.floor(0.1 * Math.sqrt(client.points.get(key, "points")));
+    
+    // Act upon level up by sending a message and updating the user's level in enmap.
     if (client.points.get(key, "level") < curLevel) {
+      console.log("boop")
       client.points.set(key, curLevel, "level");
-      console.log(message.author.username)
     }
   }
   var i;
@@ -81,7 +86,7 @@ client.on('message', message => {
     return;
   }
   try {
-    client.commands.get(cmdName).execute(message, args);
+    client.commands.get(cmdName).execute(message, args, client);
   } catch (error) {
     //ChrisBot done goofed
   console.error(error);
