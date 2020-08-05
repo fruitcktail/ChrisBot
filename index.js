@@ -8,6 +8,10 @@ const config = require("./config.json");
 // config.token contains the bot's token
 // config.prefix contains the message prefix.
 
+//enmap4points
+const Enmap = require("enmap");
+client.points = new Enmap({name: "points"});
+
 client.commands = new Discord.Collection();
 
 // readdirSync() Creates an array of all files in the "commands" directory, filter filters out non .js files
@@ -32,6 +36,24 @@ var othermatches = ["hysteria", "dead star", "acab", "overy", "ur so sexy", "cav
 var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYOOUURRSSEELLFF", "1312!!", "ChrisBot officially ships Overy! (Action/Caw when)", "no don't ur so sexy aha", "<@643545858473852928> please let me play that again! I love the bassline.", "gebii > overy"];
 client.on('message', message => {
   if (message.author.bot) return;
+  if (message.guild) {
+    //points uwu
+    const key = `${message.guild.id}-${message.author.id}`;
+    client.points.ensure(key, {
+      //excuse me sir would you like an account
+      user: message.author.id,
+      guild: message.guild.id,
+      points: 0,
+      level: 1
+    });
+    //excuse me sir would you like a point
+    client.points.inc(key, "points");
+    const curLevel = Math.floor(0.1 * Math.sqrt(client.points.get(key, "points")));
+    if (client.points.get(key, "level") < curLevel) {
+      client.points.set(key, curLevel, "level");
+      console.log(message.author.username)
+    }
+  }
   var i;
   for (i = 0; i < exactmatches.length; i++) {
     if (message.content == exactmatches[i]) {
