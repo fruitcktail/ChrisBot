@@ -55,7 +55,8 @@ client.on('message', message => {
     
     // Act upon level up by sending a message and updating the user's level in enmap.
     if (client.points.get(key, "level") < curLevel) {
-      console.log(message.author)
+      console.log(message.author);
+      console.log(curLevel);
       client.points.set(key, curLevel, "level");
     }
   }
