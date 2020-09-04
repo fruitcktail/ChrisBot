@@ -80,6 +80,10 @@ client.on('message', message => {
   const args = message.content.slice(prefix.length + 1).split(/ +/);
   // I'm a nice person, so I'm making it case insensitive.
   const cmdName = args.shift().toLowerCase();
+  if (cmdName === "points") {
+    const key = `${message.guild.id}-${message.author.id}`;
+    return message.channel.send(`You currently have ${client.points.get(key, "points")} points, and are level ${client.points.get(key, "level")}!`);
+  }
   // If it's not a real command, the bot will send an emoji in response.
   if (!client.commands.has(cmdName)) {
     var emoterand = Math.floor(Math.random() * 5);
