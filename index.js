@@ -48,8 +48,8 @@ client.on('message', message => {
       points: 0,
       level: 1
     });
-    
-    client.points.math(key, "+", 10, "points")
+    var RandPoints = Math.floor(Math.random() * 10) + 5;
+    client.points.math(key, "+", RandPoints, "points")
     // Calculate the user's current level
     const curLevel = Math.floor(0.1 * Math.sqrt(client.points.get(key, "points")));
     
