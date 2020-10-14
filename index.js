@@ -30,8 +30,8 @@ client.on('ready', () => {
   console.log(`we really do be logging in doe...`);
   client.user.setActivity('wubwub bass', { type: 'PLAYING' }); 
 });
-var exactmatches = ["uwu", "delete server", "please tone down"];
-var exactmatchesresponses = ["cummy mpreg", "No!", "the weirdness guys"];
+var exactmatches = ["uwu", "delete server", "please tone down", "gdfhijgehgijafdshidsfahjigsdf"];
+var exactmatchesresponses = ["cummy mpreg", "No!", "the weirdness guys", "Bring Back MattBot!"];
 var othermatches = ["hysteria", "dead star", "acab", "overy", "ur so sexy", "gebii"];
 var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYOOUURRSSEELLFF", "1312!!", "ChrisBot officially ships Overy! (Action/Caw when)", "no don't ur so sexy aha", "gebii > overy"];
 client.on('message', message => {
@@ -75,10 +75,6 @@ client.on('message', message => {
       return;
     }
   }
-  if(message.content == "elephant") {
-    message.channel.send({
-        files: ['./images/elephant.jpg']
-    });
 } 
   if (!message.content.startsWith(prefix)) return;
    // These are the Prefix commands, you have to say "ChrisBot" to use them. Later ones might be hardcoded, I have no idea what I'm doing.
