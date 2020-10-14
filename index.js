@@ -74,8 +74,7 @@ client.on('message', message => {
       console.log(othermatchesresponses[i]);
       return;
     }
-  }
-} 
+  } 
   if (!message.content.startsWith(prefix)) return;
    // These are the Prefix commands, you have to say "ChrisBot" to use them. Later ones might be hardcoded, I have no idea what I'm doing.
   const args = message.content.slice(prefix.length + 1).split(/ +/);
