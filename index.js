@@ -30,10 +30,10 @@ client.on('ready', () => {
   console.log(`we really do be logging in doe...`);
   client.user.setActivity('wubwub bass', { type: 'PLAYING' }); 
 });
-var exactmatches = ["uwu", "delete server", "please tone down", "gdfhijgehgijafdshidsfahjigsdf"];
-var exactmatchesresponses = ["cummy mpreg", "No!", "the weirdness guys", "Bring Back MattBot!"];
-var othermatches = ["hysteria", "dead star", "acab", "overy", "ur so sexy", "gebii"];
-var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYOOUURRSSEELLFF", "1312!!", "ChrisBot officially ships Overy! (Action/Caw when)", "no don't ur so sexy aha", "gebii > overy"];
+var exactmatches = ["uwu", "delete server", "please tone down", "ave rights", "trans rights"];
+var exactmatchesresponses = ["cummy mpreg", "No!", "the weirdness guys", "No way!", "Trans Rights!"];
+var othermatches = ["hysteria", "dead star", "acab", "havery", "ur so sexy", "gebii", "averannah"];
+var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYOOUURRSSEELLFF", "1312!!", "ChrisBot officially ships Havery! (Action/Caw when)", "no don't ur so sexy aha", "gebii > overy", "god that ship name fucking sucks"];
 client.on('message', message => {
   if (message.author.bot) return;
   if (message.guild) {
@@ -83,6 +83,31 @@ client.on('message', message => {
   if (cmdName === "points") {
     const key = `${message.guild.id}-${message.author.id}`;
     return message.channel.send(`You currently have ${client.points.get(key, "points")} points, and are level ${client.points.get(key, "level")}!`);
+  }
+  if(cmdName === "leaderboard") {
+    // Get a filtered list (for this guild only), and convert to an array while we're at it.
+    const filtered = client.points.filter( p => p.guild === message.guild.id ).array();
+  
+    // Sort it to get the top results... well... at the top. Y'know.
+    const sorted = filtered.sort((a, b) => b.points - a.points);
+  
+    // Slice it, dice it, get the top 10 of it!
+    const top10 = sorted.splice(0, 10);
+  
+    // Now shake it and show it! (as a nice embed, too!)
+    const embed = new Discord.MessageEmbed()
+      .setTitle("Leaderboard")
+      .setAuthor(client.user.username, message.guild.iconURL())
+      .setDescription("Our top 10 points leaders!")
+      .setColor(0x00AE86);
+    for(const data of top10) {
+      try {
+        embed.addField(client.users.cache.get(data.user).tag, `${data.points} points (level ${data.level})`);
+      } catch {
+        embed.addField(`<@${data.user}>`, `${data.points} points (level ${data.level})`);
+      }
+    }
+    return message.channel.send({embed});
   }
   // If it's not a real command, the bot will send an emoji in response.
   if (!client.commands.has(cmdName)) {
