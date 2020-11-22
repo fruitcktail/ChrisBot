@@ -25,13 +25,13 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-var chrisemotes = ['<:chris1:714946778318766090>', '<:chris2:714946786170634255>', '<:chris3:714946793166733332>', '<:chris4:714946800230072423>', '<:chris5:714956395409047635>'];
+var chrisemotes = ['<:chris1:775413580257689630>', '<:chris2:775413580212338708>', '<:chris3:775413580585107487>', '<:chris4:775413580807667720>', '<:chris5:775413580891553833>', '<:chris6:775413581021052958>',  '<:chris7:775413580782501918>',  '<:chris8:775413580832178206>'];
 client.on('ready', () => {
   console.log(`we really do be logging in doe...`);
   client.user.setActivity('wubwub bass', { type: 'PLAYING' }); 
 });
-var exactmatches = ["uwu", "delete server", "please tone down", "ave rights", "trans rights"];
-var exactmatchesresponses = ["cummy mpreg", "No!", "the weirdness guys", "No way!", "Trans Rights!"];
+var exactmatches = ["delete server", "please tone down", "ave rights", "trans rights"];
+var exactmatchesresponses = ["No!", "the weirdness guys", "No way!", "Trans Rights!"];
 var othermatches = ["hysteria", "dead star", "acab", "havery", "ur so sexy", "gebii", "averannah"];
 var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYOOUURRSSEELLFF", "1312!!", "ChrisBot officially ships Havery! (Action/Caw when)", "no don't ur so sexy aha", "gebii > overy", "god that ship name fucking sucks"];
 client.on('message', message => {
@@ -111,7 +111,7 @@ client.on('message', message => {
   }
   // If it's not a real command, the bot will send an emoji in response.
   if (!client.commands.has(cmdName)) {
-    var emoterand = Math.floor(Math.random() * 5);
+    var emoterand = Math.floor(Math.random() * chrisemotes.length);
     message.channel.send(chrisemotes[emoterand])
     return;
   }
