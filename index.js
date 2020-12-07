@@ -25,13 +25,16 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
+//this is a shitty way to handle the emotes but i no longer give a fuck im a dumb fag who cannot code
+
 var chrisemotes = ['<:chris1:775413580257689630>', '<:chris2:775413580212338708>', '<:chris3:775413580585107487>', '<:chris4:775413580807667720>', '<:chris5:775413580891553833>', '<:chris6:775413581021052958>',  '<:chris7:775413580782501918>',  '<:chris8:775413580832178206>'];
+
 client.on('ready', () => {
   console.log(`we really do be logging in doe...`);
   client.user.setActivity('wubwub bass', { type: 'PLAYING' }); 
 });
-var exactmatches = ["delete server", "please tone down", "ave rights", "trans rights"];
-var exactmatchesresponses = ["No!", "the weirdness guys", "No way!", "Trans Rights!"];
+var exactmatches = ["delete server", "please tone down", "ave rights", "trans rights", "max"];
+var exactmatchesresponses = ["No!", "the weirdness guys", "No way!", "Trans Rights!", "Ship Marx!"];
 var othermatches = ["hysteria", "dead star", "acab", "havery", "ur so sexy", "gebii", "averannah"];
 var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYOOUURRSSEELLFF", "1312!!", "ChrisBot officially ships Havery! (Action/Caw when)", "no don't ur so sexy aha", "gebii > overy", "god that ship name fucking sucks"];
 client.on('message', message => {
