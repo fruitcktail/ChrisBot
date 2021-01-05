@@ -36,7 +36,7 @@ client.on('ready', () => {
 var exactmatches = ["delete server", "please tone down", "ave rights", "trans rights", "max"];
 var exactmatchesresponses = ["No!", "the weirdness guys", "No way!", "Trans Rights!", "Ship Marx!"];
 var othermatches = ["hysteria", "dead star", "acab", "havery", "ur so sexy", "gebii", "averannah", "sawahannah"];
-var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYOOUURRSSEELLFF", "1312!!", "ChrisBot officially ships Havery! (Action/Caw when)", "no don't ur so sexy aha", "gebii > overy", "god that ship name fucking sucks", "god that ship name's even worse than averannah"];
+var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYOOUURRSSEELLFF", "1312!!", "ChrisBot officially ships Havery! (Action/Caw when)", "no don't ur so sexy aha", "gebii > havery", "god that ship name fucking sucks", "god that ship name's even worse than averannah"];
 client.on('message', message => {
   if (message.author.bot) return;
   if (message.guild) {
