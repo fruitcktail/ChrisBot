@@ -25,7 +25,7 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-//this is a shitty way to handle the emotes but i no longer give a fuck im a dumb fag who cannot code
+//this is a shitty way to handle the emotes but i no longer give a fuck
 
 var chrisemotes = ['<:chris1:775413580257689630>', '<:chris2:775413580212338708>', '<:chris3:775413580585107487>', '<:chris4:775413580807667720>', '<:chris5:775413580891553833>', '<:chris6:775413581021052958>',  '<:chris7:775413580782501918>',  '<:chris8:775413580832178206>'];
 
