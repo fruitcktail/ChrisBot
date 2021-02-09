@@ -40,7 +40,7 @@ var othermatchesresponses = ["Hysteria hurts my fingers!", "FFIIGGHHTTIINNGG YYO
 client.on('message', message => {
   if (message.author.bot) return;
   if (message.guild) {
-    //points uwu
+    //points uwu, ill find a way to put this somewhere else
     // We'll use the key often enough that simplifying it is worth the trouble.
     const key = `${message.guild.id}-${message.author.id}`;
 
@@ -49,7 +49,7 @@ client.on('message', message => {
       user: message.author.id,
       guild: message.guild.id,
       points: 0,
-      level: 1
+      level: 0
     });
     var RandPoints = Math.floor(Math.random() * 10) + 5;
     client.points.math(key, "+", RandPoints, "points")
@@ -58,9 +58,11 @@ client.on('message', message => {
     
     // Act upon level up by sending a message and updating the user's level in enmap.
     if (client.points.get(key, "level") < curLevel) {
-      console.log(message.author);
-      console.log(curLevel);
       client.points.set(key, curLevel, "level");
+      console.log(message.author)
+      if(curLevel %5 === 0) {
+        console.log(`${message.author} reached level ${curLevel}, tell ave their code worked so they can take this message out`);
+      }
     }
   }
   var i;
@@ -93,15 +95,23 @@ client.on('message', message => {
   
     // Sort it to get the top results... well... at the top. Y'know.
     const sorted = filtered.sort((a, b) => b.points - a.points);
+    
+    n = parseInt(args[0]);
+    console.log(args[0]);
+
+    //calculate the top 10
+    if(!isNumber(n)) {
+      n = 1
+    }
+    n2 = (n-1) * 10
+    const top10 = sorted.splice(n2, n2 + 10);
+    console.log(top10)
   
-    // Slice it, dice it, get the top 10 of it!
-    const top10 = sorted.splice(0, 10);
-  
-    // Now shake it and show it! (as a nice embed, too!)
+    // embed time!
     const embed = new Discord.MessageEmbed()
       .setTitle("Leaderboard")
       .setAuthor(client.user.username, message.guild.iconURL())
-      .setDescription("Our top 10 points leaders!")
+      .setDescription(`Page ${n}`)
       .setColor(0x00AE86);
     for(const data of top10) {
       try {
@@ -110,6 +120,7 @@ client.on('message', message => {
         embed.addField(`<@${data.user}>`, `${data.points} points (level ${data.level})`);
       }
     }
+    embed.setFooter("non-cached users shown as ids");
     return message.channel.send({embed});
   }
   // If it's not a real command, the bot will send an emoji in response.
@@ -126,5 +137,9 @@ client.on('message', message => {
   message.reply('I fucked up that ~~bassline~~ command, try again?');
   }
 });
+
+function isNumber(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
 
 client.login(config.token);
